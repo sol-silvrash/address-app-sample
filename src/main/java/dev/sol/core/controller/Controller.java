@@ -4,18 +4,18 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import javafx.application.Application;
+import dev.sol.App;
 
 public abstract class Controller {
-    protected Application application;
+    protected App app;
     protected List<Serializable> params;
 
-    public void load(Application application) {
+    public void load(App application) {
         load(application, new LinkedList<>());
     }
 
-    public void load(Application application, List<Serializable> params) {
-        this.application = application;
+    public void load(App application, List<Serializable> params) {
+        this.app = application;
         this.params = params;
 
         load_fields();

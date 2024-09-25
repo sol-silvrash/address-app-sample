@@ -1,6 +1,5 @@
 package dev.sol.app.overview;
 
-import dev.sol.App;
 import dev.sol.core.controller.Controller;
 import dev.sol.core.loader.LoaderFactory;
 import dev.sol.models.Person;
@@ -37,7 +36,7 @@ public class PersonOverviewController extends Controller {
 
     @FXML
     private void handleNew() {
-
+        LoaderFactory.load("overview/form/PersonForm", app);
     }
 
     @FXML
@@ -50,7 +49,6 @@ public class PersonOverviewController extends Controller {
 
     @Override
     protected void load_fields() {
-        App app = (App) application;
         personTableview.setItems(app.getPersonlist());
         personTableview.setRowFactory(rowItem -> {
             TableRow<Person> row = new TableRow<>();

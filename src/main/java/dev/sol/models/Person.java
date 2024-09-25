@@ -58,7 +58,8 @@ public class Person implements Serializable {
     }
 
     public Person(Person person) {
-        this(person.getFirstname(),
+        this(person.getId(),
+                person.getFirstname(),
                 person.getLastname(),
                 person.getStreet(),
                 person.getCity(),
@@ -72,8 +73,25 @@ public class Person implements Serializable {
             String city,
             String postalcode,
             LocalDate birthdate) {
-        _id = new SimpleStringProperty(UUID.randomUUID().toString());
+        this(
+                UUID.randomUUID().toString(),
+                firstname,
+                lastname,
+                street,
+                city,
+                postalcode,
+                birthdate);
+    }
 
+    private Person(
+            String id,
+            String firstname,
+            String lastname,
+            String street,
+            String city,
+            String postalcode,
+            LocalDate birthdate) {
+        _id = new SimpleStringProperty(id);
         _firstname = new SimpleStringProperty(firstname);
         _lastname = new SimpleStringProperty(lastname);
         _street = new SimpleStringProperty(street);

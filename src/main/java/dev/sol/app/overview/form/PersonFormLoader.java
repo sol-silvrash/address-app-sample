@@ -18,14 +18,18 @@ public class PersonFormLoader extends Loader {
     public void load() {
         try {
             Parent root = loader.load();
+            root.setOnMousePressed(e -> root.requestFocus());
+
             Scene scene = new Scene(root);
             Stage formStage = new Stage();
 
             PersonFormController controller = loader.getController();
             controller.load(app, formStage, params);
-            
+
+            formStage.setTitle("Address App - Information Form");
             formStage.initOwner(app.getApplicationStage());
-            formStage.initModality(Modality.APPLICATION_MODAL); // ? test the three modalities later
+            formStage.initModality(Modality.APPLICATION_MODAL);
+            formStage.setResizable(false);
             formStage.setScene(scene);
             formStage.showAndWait();
         } catch (IOException e) {

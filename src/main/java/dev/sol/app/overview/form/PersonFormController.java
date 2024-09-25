@@ -52,6 +52,13 @@ public class PersonFormController extends Controller {
 
     @FXML
     private void handleSubmit() {
+        if (params.isEmpty())
+            app.getPersonlist().add(0, person);
+        else {
+            int personIdx = app.getPersonlist().indexOf(person);
+            app.getPersonlist().set(personIdx, person);
+        }
+
         formStage.close();
     }
 
@@ -61,7 +68,6 @@ public class PersonFormController extends Controller {
     }
 
     private Person person;
-    private Person temp_person;
     private Stage formStage;
 
     public void load(App app, Stage stage, List<Serializable> params) {
@@ -71,32 +77,35 @@ public class PersonFormController extends Controller {
 
     @Override
     protected void load_fields() {
-        person = (Person) getParameter(0);
-        temp_person = new Person(person);
+        if (params.isEmpty())
+            person = new Person();
+        else
+            person = new Person((Person) getParameter(0));
     }
 
     @Override
     protected void load_bindings() {
-        firstnameField.textProperty().bindBidirectional(temp_person.firstnameProperty());
-        firstnameError.visibleProperty().bind(Bindings.isEmpty(temp_person.firstnameProperty()));
+        firstnameField.textProperty().bindBidirectional(person.firstnameProperty());
+        firstnameError.visibleProperty().bind(Bindings.isEmpty(person.firstnameProperty()));
 
-        lastnameField.textProperty().bindBidirectional(temp_person.lastnameProperty());
-        lastnameError.visibleProperty().bind(Bindings.isEmpty(temp_person.lastnameProperty()));
+        lastnameField.textProperty().bindBidirectional(person.lastnameProperty());
+        lastnameError.visibleProperty().bind(Bindings.isEmpty(person.lastnameProperty()));
 
-        streetField.textProperty().bindBidirectional(temp_person.streetProperty());
-        streetError.visibleProperty().bind(Bindings.isEmpty(temp_person.streetProperty()));
+        streetField.textProperty().bindBidirectional(person.streetProperty());
+        streetError.visibleProperty().bind(Bindings.isEmpty(person.streetProperty()));
 
-        cityField.textProperty().bindBidirectional(temp_person.cityProperty());
-        cityError.visibleProperty().bind(Bindings.isEmpty(temp_person.cityProperty()));
+        cityField.textProperty().bindBidirectional(person.cityProperty());
+        cityError.visibleProperty().bind(Bindings.isEmpty(person.cityProperty()));
 
-        postalcodeField.textProperty().bindBidirectional(temp_person.postalcodeProperty());
-        postalcodeError.visibleProperty().bind(Bindings.isEmpty(temp_person.postalcodeProperty()));
+        postalcodeField.textProperty().bindBidirectional(person.postalcodeProperty());
+        postalcodeError.visibleProperty().bind(Bindings.isEmpty(person.postalcodeProperty()));
 
-        birthdayField.valueProperty().bindBidirectional(temp_person.birthdateProperty());
+        birthdayField.valueProperty().bindBidirectional(person.birthdateProperty());
         BooleanBinding checkBirthdateBinding = Bindings.createBooleanBinding(() -> {
-            LocalDate birthdate = temp_person.getBirthdate();
-            return birthdate.isAfter(LocalDate.now().minusYears(18));
-        }, temp_person.birthdateProperty());
+            LocalDate birthdate = person.getBirthdate();
+            return birthdate.isAfter(LocalDate.now().minusYears(18))
+                    || birthdate.isBefore(LocalDate.now().minusYears(65));
+        }, person.birthdateProperty());
         birthdayError.visibleProperty().bind(checkBirthdateBinding);
 
         BooleanBinding checkErrorBinding = Bindings
