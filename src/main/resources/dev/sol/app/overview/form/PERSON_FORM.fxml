@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.sol.app.overview.form.PersonFormController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <VBox spacing="5.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Label text="First Name" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="firstnameError" text="* - Field is Empty" textFill="RED" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <TextField fx:id="firstnameField" promptText="Provide First Name" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Label text="Last Name" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lastnameError" text="* - Field is Empty" textFill="RED" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <TextField fx:id="lastnameField" promptText="Provide Last Name" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Label text="Street" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="streetError" text="* - Field is Empty" textFill="RED" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <TextField fx:id="streetField" promptText="Provide Street" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Label text="City" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cityError" text="* - Field is Empty" textFill="RED" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <TextField fx:id="cityField" promptText="Provide City" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Label text="Postal Code" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="postalcodeError" text="* - Field is Empty" textFill="RED" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <TextField fx:id="postalcodeField" promptText="Provide Postal Code" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Label text="Birthday" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="birthdayError" text="* - Field Input Invalid. Check Range" textFill="RED" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <HBox>
+                     <children>
+                        <DatePicker fx:id="birthdayField" editable="false" prefWidth="180.0" promptText="Provide Birthdate" />
+                        <StackPane HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label opacity="0.75" text="(Range) 18-65 years old" textFill="#7c7c7c" StackPane.alignment="CENTER_RIGHT" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS" />
+            <HBox spacing="15.0">
+               <children>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="submitButton" mnemonicParsing="false" onAction="#handleSubmit" prefWidth="100.0" text="Submit" />
+                  <Button mnemonicParsing="false" onAction="#handleCancel" prefWidth="100.0" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</StackPane>
