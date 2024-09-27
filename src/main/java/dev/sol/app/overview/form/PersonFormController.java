@@ -1,12 +1,9 @@
 package dev.sol.app.overview.form;
 
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
-
 import dev.sol.App;
 import dev.sol.core.controller.Controller;
-import dev.sol.models.Person;
+import dev.sol.models.person.Person;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
@@ -52,7 +49,7 @@ public class PersonFormController extends Controller {
 
     @FXML
     private void handleSubmit() {
-        if (params.isEmpty())
+        if (isNew)
             app.getPersonlist().add(0, person);
         else {
             int personIdx = app.getPersonlist().indexOf(person);
@@ -69,18 +66,24 @@ public class PersonFormController extends Controller {
 
     private Person person;
     private Stage formStage;
+    private Boolean isNew;
 
-    public void load(App app, Stage stage, List<Serializable> params) {
+    public void load(App app, Stage stage) {
         formStage = stage;
-        super.load(app, params);
+        person = new Person();
+        isNew = true;
+        super.load(app);
+    }
+
+    public void load(App app, Stage stage, Person person) {
+        formStage = stage;
+        this.person = person;
+        isNew = false;
+        super.load(app);
     }
 
     @Override
     protected void load_fields() {
-        if (params.isEmpty())
-            person = new Person();
-        else
-            person = new Person((Person) getParameter(0));
     }
 
     @Override

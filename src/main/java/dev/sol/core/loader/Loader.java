@@ -33,11 +33,11 @@ public abstract class Loader {
     }
 
     public URL getResource() {
-        return App.class.getResource(path);
+        return getClass().getResource(path);
     }
 
     public InputStream getResourceAsStream() {
-        return App.class.getResourceAsStream(path);
+        return getClass().getResourceAsStream(path);
     }
 
     public abstract void load();

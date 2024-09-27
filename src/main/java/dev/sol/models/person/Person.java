@@ -1,4 +1,4 @@
-package dev.sol.models;
+package dev.sol.models.person;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -31,13 +31,6 @@ public class Person implements Serializable {
                 city,
                 postalcode,
                 birthdate);
-    }
-
-    public static List<Person> GENERATE_LIST() {
-        List<Person> personlist = new LinkedList<>();
-        for (int i = 0; i < 50; i++)
-            personlist.add(Person.GENERATE());
-        return personlist;
     }
 
     private final StringProperty _id;

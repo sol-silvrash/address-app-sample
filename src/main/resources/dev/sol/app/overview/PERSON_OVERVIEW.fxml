@@ -29,11 +29,11 @@
             </TableView>
          </children>
       </StackPane>
-      <StackPane minWidth="300.0">
+      <StackPane minWidth="300.0" styleClass="background">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
                <children>
-                  <Label text="Person Details" />
+                  <Label styleClass="label-header" text="Person Details" />
                   <GridPane vgap="15.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,12 +48,12 @@
                         <RowConstraints vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="First Name" />
-                        <Label text="Last Name" GridPane.rowIndex="1" />
-                        <Label text="Street" GridPane.rowIndex="2" />
-                        <Label text="City" GridPane.rowIndex="3" />
-                        <Label text="Postal Code" GridPane.rowIndex="4" />
-                        <Label text="Birthday" GridPane.rowIndex="5" />
+                        <Label styleClass="label-bright" text="First Name" />
+                        <Label styleClass="label-bright" text="Last Name" GridPane.rowIndex="1" />
+                        <Label styleClass="label-bright" text="Street" GridPane.rowIndex="2" />
+                        <Label styleClass="label-bright" text="City" GridPane.rowIndex="3" />
+                        <Label styleClass="label-bright" text="Postal Code" GridPane.rowIndex="4" />
+                        <Label styleClass="label-bright" text="Birthday" GridPane.rowIndex="5" />
                         <Label fx:id="firstnameLabel" text="Label" GridPane.columnIndex="1" />
                         <Label fx:id="lastnameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="streetLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -66,7 +66,7 @@
                   <HBox spacing="10.0">
                      <children>
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" onAction="#handleNew" prefWidth="150.0" text="Add New Person" />
+                        <Button mnemonicParsing="false" onAction="#handleNew" prefWidth="200.0" text="Add New Person" />
                      </children>
                   </HBox>
                </children>

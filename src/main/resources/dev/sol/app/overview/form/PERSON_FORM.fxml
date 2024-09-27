@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.sol.app.overview.form.PersonFormController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" styleClass="background" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.sol.app.overview.form.PersonFormController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
          <children>
@@ -19,7 +19,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label text="First Name" StackPane.alignment="CENTER_LEFT">
+                        <Label styleClass="label-bright" text="First Name" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -34,7 +34,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label text="Last Name" StackPane.alignment="CENTER_LEFT">
+                        <Label styleClass="label-bright" text="Last Name" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -49,7 +49,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label text="Street" StackPane.alignment="CENTER_LEFT">
+                        <Label styleClass="label-bright" text="Street" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -64,7 +64,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label text="City" StackPane.alignment="CENTER_LEFT">
+                        <Label styleClass="label-bright" text="City" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -79,7 +79,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label text="Postal Code" StackPane.alignment="CENTER_LEFT">
+                        <Label styleClass="label-bright" text="Postal Code" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -94,7 +94,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label text="Birthday" StackPane.alignment="CENTER_LEFT">
+                        <Label styleClass="label-bright" text="Birthday" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

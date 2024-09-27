@@ -1,7 +1,8 @@
 package dev.sol;
 
 import dev.sol.core.loader.LoaderFactory;
-import dev.sol.models.Person;
+import dev.sol.models.person.Person;
+import dev.sol.models.person.PersonlistWrapper;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         applicationStage = stage;
-        personlist = FXCollections.observableArrayList(Person.GENERATE_LIST());
+        personlist = FXCollections.observableArrayList();
         _init();
     }
 

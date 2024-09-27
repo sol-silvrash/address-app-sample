@@ -2,7 +2,7 @@ package dev.sol.app.overview;
 
 import dev.sol.core.controller.Controller;
 import dev.sol.core.loader.LoaderFactory;
-import dev.sol.models.Person;
+import dev.sol.models.person.Person;
 import dev.sol.utils.DateUtil;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
