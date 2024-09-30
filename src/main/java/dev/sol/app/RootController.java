@@ -101,12 +101,12 @@ public class RootController extends Controller {
 
     @FXML
     private void handleRandomizeData() {
-        // TODO: clears and creates a randomized dataset to personlist
+        app.getPersonlist().setAll(PersonlistWrapper.GENERATE());
     }
 
     @FXML
     private void handleClearData() {
-        // TODO: clears all data
+        app.getPersonlist().clear();
     }
 
     @FXML
