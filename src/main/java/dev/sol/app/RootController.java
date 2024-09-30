@@ -4,6 +4,7 @@ import java.io.File;
 
 import dev.sol.App;
 import dev.sol.core.controller.Controller;
+import dev.sol.core.loader.LoaderFactory;
 import dev.sol.libs.xml.JAXBLib;
 import dev.sol.models.person.PersonlistWrapper;
 import dev.sol.utils.RegUtil;
@@ -96,7 +97,7 @@ public class RootController extends Controller {
 
     @FXML
     private void handleStatistics() {
-        // TODO: creates a chart that will display the average age
+        LoaderFactory.load("BirthdayStatistics", app);
     }
 
     @FXML
