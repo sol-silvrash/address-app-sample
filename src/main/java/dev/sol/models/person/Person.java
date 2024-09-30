@@ -2,11 +2,11 @@ package dev.sol.models.person;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.UUID;
 
+import dev.sol.libs.xml.adapter.LocalDateXMLAdapter;
 import dev.sol.utils.DateUtil;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -165,6 +165,7 @@ public class Person implements Serializable {
         return _birthdate;
     }
 
+    @XmlJavaTypeAdapter(LocalDateXMLAdapter.class)
     public LocalDate getBirthdate() {
         return birthdateProperty().get();
     }

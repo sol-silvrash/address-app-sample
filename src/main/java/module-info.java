@@ -17,4 +17,5 @@ module sol.addressapp {
 
     exports dev.sol;
     exports dev.sol.models.person;
+    exports dev.sol.libs.xml.adapter;
 }

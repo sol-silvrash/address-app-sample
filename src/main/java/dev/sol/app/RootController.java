@@ -25,7 +25,17 @@ public class RootController extends Controller {
 
     @FXML
     private void handleImport() {
-
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new ExtensionFilter("XML files(*.xml)", "*.xml"));
+        if (RegUtil.getValueFromRegistry(REGISTRY_KEY, App.class) != null) {
+            File currentFile = new File(RegUtil.getValueFromRegistry(REGISTRY_KEY, App.class));
+            fc.setInitialDirectory(currentFile.getParentFile());
+        }
+        File file = fc.showOpenDialog(app.getApplicationStage());
+        if (file != null) {
+            RegUtil.setValueToRegistry(REGISTRY_KEY, file.getPath(), App.class);
+            _load_xmlFile(file);
+        }
     }
 
     @FXML
@@ -46,6 +56,7 @@ public class RootController extends Controller {
         if (file != null) {
             if (!file.getPath().endsWith(".xml"))
                 file = new File(file.getPath() + ".xml");
+            RegUtil.setValueToRegistry(REGISTRY_KEY, file.getPath(), App.class);
             handleSave();
         }
     }
@@ -53,17 +64,23 @@ public class RootController extends Controller {
     private void _load_xmlFile(File file) {
         app.getApplicationStage().setTitle("Address App - " + file.getPath());
         PersonlistWrapper personlistWrapper = JAXBLib.deserialize(file, PersonlistWrapper.class);
-        app.getPersonlist().clear();
-        app.getPersonlist().addAll(personlistWrapper.getPersonlist());
-        RegUtil.setValueToRegistry(REGISTRY_KEY, file.getPath(), App.class);
+        if (personlistWrapper != null) {
+            app.getPersonlist().clear();
+            app.getPersonlist().addAll(personlistWrapper.getPersonlist());
+            RegUtil.setValueToRegistry(REGISTRY_KEY, file.getPath(), App.class);
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Could not load data");
+            alert.setContentText("Could not load data from file: " + file.getPath());
+            alert.showAndWait();
+        }
     }
 
     private void _save_xmlFile(File file) {
         app.getApplicationStage().setTitle("Address App - " + file.getPath());
         PersonlistWrapper personlistWrapper = new PersonlistWrapper(app.getPersonlist());
-        if (JAXBLib.serialize(file, personlistWrapper))
-            RegUtil.setValueToRegistry(REGISTRY_KEY, file.getPath(), App.class);
-        else {
+        if (!JAXBLib.serialize(file, personlistWrapper)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Could not save data");
