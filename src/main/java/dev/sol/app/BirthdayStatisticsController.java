@@ -27,6 +27,7 @@ public class BirthdayStatisticsController extends Controller {
                 DateFormatSymbols.getInstance(Locale.ENGLISH)
                         .getMonths());
         xAxis.setCategories(monthNames);
+        birthdayChart_seriesValue = new Series<>();
 
         monthNames.forEach(month -> {
             int monthCount = (int) app.getPersonlist()

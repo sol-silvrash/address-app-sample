@@ -25,6 +25,9 @@ public class BirthdayStatisticsLoader extends Loader {
                     getClass().getResource("/dev/sol/assets/theme/SKIN.CSS")
                             .toExternalForm());
 
+            BirthdayStatisticsController controller = loader.getController();
+            controller.load(app);
+
             Stage statisticsStage = new Stage();
             statisticsStage.setTitle("Address App - Birthday Statistics");
             statisticsStage.getIcons()
